@@ -1,0 +1,8 @@
+add_action( 'wp', 'papanbiswasbd_redirect_product_pages', 99 );
+ 
+function papanbiswasbd_redirect_product_pages() {   
+    if ( is_product() && !is_user_logged_in() ) {
+        wp_safe_redirect( '/my-account/?action=register' );
+        exit;
+    } 
+}
