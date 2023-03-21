@@ -1,0 +1,14 @@
+<?php // Do not include this if already open! Code goes in theme functions.php.
+/**
+ * woocommerce_cart_totals_order_total_html
+ *
+ * @access      public
+ * @since       1.0 
+ * @return      void
+*/
+add_filter( 'woocommerce_cart_totals_order_total_html', 'woo_rename_tax_inc_cart', 10, 1 );
+
+function woo_rename_tax_inc_cart( $value ) {
+	$value = str_ireplace( 'Tax', 'GST', $value );
+	return $value;
+}
